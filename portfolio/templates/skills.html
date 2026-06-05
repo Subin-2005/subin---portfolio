@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="skills-section">
+
+    <h1 class="title">My Skills</h1>
+    <p class="subtitle">
+        Technologies and tools I use for web development
+    </p>
+
+    <div class="skills-container">
+        {% for skill in skills %}
+        <div class="skill-card">
+            <div class="skill-title-row">
+                <h2>{{ skill.name }}</h2>
+                <span>{{ skill.group }}</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" style="width: {{ skill.level }}%">{{ skill.level }}%</div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

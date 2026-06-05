@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="about-page">
+    <h1>About Me</h1>
+    <h2>Hi, I am {{ profile.name }}, a {{ profile.role }}.</h2>
+    <p>{{ profile.summary }}</p>
+
+    <p>I focus on building responsive, user-friendly, and dynamic web applications using:</p>
+
+    <div class="about-tags">
+        {% for skill in skills %}
+        <span>{{ skill.name }}</span>
+        {% endfor %}
+    </div>
+
+    <p>I enjoy building real-world projects and continuously improving my programming skills. I am interested in web development, UI design, and backend architecture.</p>
+
+    <p>My goal is to become a professional software developer and contribute to innovative and impactful projects.</p>
+
+    <div class="stats-row">
+        <div>
+            <strong>8+</strong>
+            <span>Core skills</span>
+        </div>
+        <div>
+            <strong>3</strong>
+            <span>Featured projects</span>
+        </div>
+        <div>
+            <strong>Full Stack</strong>
+            <span>Development focus</span>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

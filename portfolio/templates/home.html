@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="home-page">
+    <div class="home-content">
+        <p class="eyebrow">{{ profile.location }}</p>
+        <h1>Hi, I am {{ profile.name }}</h1>
+        <h3>I build <span class="typing"></span></h3>
+        <p>{{ profile.summary }}</p>
+        <div class="btn-group">
+            <a href="{% static 'pdf/SUBIN Resume.pdf' %}" class="btn btn-primary" target="_blank">View Resume</a>
+            <a href="/projects/" class="btn btn-primary">View Projects</a>
+            <!-- <a href="/contact/" class="btn btn-secondary">Contact Me</a> -->
+        </div>
+    </div>
+
+    <div class="profile-img">
+        <span class="profile-ring"></span>
+        <img src="{% static 'images/subin2.jpeg' %}" alt="{{ profile.name }}">
+    </div>
+</section>
+
+<section class="section-band">
+    <div class="section-heading">
+        <p class="eyebrow">What I do</p>
+        <h2>Full stack development with a practical, user-first mindset.</h2>
+    </div>
+    <div class="service-grid">
+        {% for service in services %}
+        <article class="service-item">
+            <span>0{{ forloop.counter }}</span>
+            <p>{{ service }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section-band compact">
+    <div class="section-heading">
+        <p class="eyebrow">Featured work</p>
+        <h2>Selected projects</h2>
+    </div>
+    <div class="project-grid">
+        {% for project in featured_projects %}
+        <article class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="tag-list">
+                {% for item in project.stack %}
+                <span>{{ item }}</span>
+                {% endfor %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
