@@ -1,8 +1,10 @@
 # subin---portfolio
 My Portfolio website
 
-## 📄 HTML Pages Overview
+<<<<<<< HEAD
 
+=======
+>>>>>>>
 ### Home Page (`home.html`)
 
 The landing page of the portfolio website. It introduces visitors to who I am and highlights my role as a Python Full Stack Developer. This page includes:
