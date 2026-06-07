@@ -6,7 +6,7 @@ PROFILE = {
     "role": "Python Full Stack Developer",
     "location": "Tamil Nadu, India",
     "email": "subinsr.developer@gmail.com",
-    "phone": "+91 00000 00000",
+    "phone": "+91 8122715090",
     "summary": (
         "I build clean, responsive web applications with Django, Python, "
         "JavaScript, React, and MySQL. I enjoy turning practical ideas into "

@@ -1,4 +1,4 @@
-const words = ["Django apps", "responsive websites", "clean interfaces", "backend systems"];
+const words = ["Django Apps", "Responsive Websites", "Clean Interfaces", "Backend Systems"];
 
 let wordIndex = 0;
 let letterIndex = 0;
