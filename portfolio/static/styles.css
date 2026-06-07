@@ -735,89 +735,84 @@ nav ul li a.active {
 }
 
 @media (max-width: 900px) {
-  html {
-    scroll-behavior: auto;
-  }
+    header {
+        padding: 0 1.2rem;
+        flex-wrap: wrap;
+    }
 
-  body {
-    background:
-      radial-gradient(circle at top left, rgba(69, 212, 131, 0.1), transparent 22rem),
-      linear-gradient(135deg, #08110f 0%, #0f181f 52%, #11160f 100%);
-  }
+    .menu-toggle {
+        display: flex;
+    }
 
-  header {
-    backdrop-filter: blur(8px);
-  }
+    nav {
+        display: none;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
 
-  .logo-img {
-    animation-duration: 4.5s;
-    will-change: transform;
-  }
+    nav.open {
+        display: block;
+    }
 
-  .logo-text::after {
-    animation-duration: 2.6s;
-  }
+    nav ul {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
 
-  .profile-img {
-    transform: translateZ(0);
-  }
+    nav ul li a {
+        display: block;
+    }
 
-  .profile-img::before,
-  .profile-img::after {
-    animation-duration: 12s;
-    -webkit-mask: none;
-    mask: none;
-    background: none;
-    border: 4px solid transparent;
-    border-top-color: var(--accent);
-    border-right-color: rgba(69, 212, 131, 0.45);
-  }
+    .container {
+        padding: 38px 1.2rem 58px;
+    }
 
-  .profile-img::after {
-    animation-direction: reverse;
-    border-top-color: rgba(244, 201, 93, 0.75);
-    border-right-color: rgba(37, 184, 160, 0.42);
-  }
+    .home-page,
+    .contact-page {
+        grid-template-columns: 1fr;
+    }
 
-  .profile-img img {
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.34);
-  }
+    .home-page {
+        min-height: auto;
+        gap: 2.25rem;
+    }
 
-  .service-item,
-  .project-card,
-  .skill-card,
-  .contact-form,
-  .stats-row div,
-  .education-item {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
-  }
+    .profile-img {
+        grid-row: 1;
+        width: min(76vw, 330px);
+    }
 
-  .education-item:hover,
-  .btn:hover,
-  .logo-link:hover {
-    transform: none;
-  }
+    .service-grid,
+    .project-grid,
+    .skills-container,
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .service-item {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
-  .profile-img::before,
-  .profile-img::after {
-    animation-duration: 14s;
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
   }
 
-  .typing {
-    border-right-width: 2px;
-    animation-duration: 1s;
+  .logo-text {
+    font-size: 18px;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.001ms !important;
-  }
 }
