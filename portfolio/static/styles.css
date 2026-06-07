@@ -81,6 +81,8 @@ header {
         transform 0.4s ease,
         filter 0.4s ease;
     animation: logoFloat 3s ease-in-out infinite;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .logo-link:hover .logo-img {
@@ -285,6 +287,8 @@ nav ul li a.active {
     justify-content: center;
     align-items: center;
     justify-self: center;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .profile-img::before,
@@ -294,6 +298,9 @@ nav ul li a.active {
     inset: 0;
     border-radius: 50%;
     pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
 
     -webkit-mask: radial-gradient(
         farthest-side,
@@ -736,15 +743,15 @@ nav ul li a.active {
 @media (max-width: 900px) {
     body {
         background:
-            radial-gradient(circle at top left, rgba(69, 212, 131, 0.08), transparent 22rem),
-            linear-gradient(135deg, #08110f 0%, #0f181f 100%);
+            radial-gradient(circle at top left, rgba(69, 212, 131, 0.10), transparent 24rem),
+            linear-gradient(135deg, #08110f 0%, #0f181f 52%, #11160f 100%);
     }
 
     header {
         padding: 0 1.2rem;
         flex-wrap: wrap;
-        backdrop-filter: none;
-        background: rgba(8, 17, 15, 0.96);
+        background: rgba(8, 17, 15, 0.94);
+        backdrop-filter: blur(8px);
     }
 
     .menu-toggle {
@@ -784,58 +791,28 @@ nav ul li a.active {
         gap: 2.25rem;
     }
 
-
     .profile-img {
-        transform: translateZ(0);
-        will-change: transform;
+        grid-row: 1;
+        width: min(76vw, 330px);
+        contain: layout paint;
     }
 
     .profile-img::before,
     .profile-img::after {
         display: block;
-        inset: 0;
-        border-radius: 50%;
-        background: none;
-        -webkit-mask: none;
-        mask: none;
-        border: 4px solid transparent;
-        animation: rotate 8s linear infinite;
-        will-change: transform;
-    }
-
-    .profile-img::before {
-        border-top-color: var(--accent);
-        border-right-color: var(--accent);
-        box-shadow: 0 0 22px rgba(69, 212, 131, 0.24);
+        animation: rotate 9s linear infinite;
     }
 
     .profile-img::after {
-        border-bottom-color: var(--accent);
-        border-left-color: var(--accent);
-        animation-duration: 10s;
-        opacity: 0.85;
-    }
-
-    .profile-ring {
-        animation: rotate 12s linear infinite reverse;
-        will-change: transform;
-    }
-
-    .profile-img img,
-    .logo-img,
-    .logo-text::after,
-    .typing {
-        will-change: transform;
+        animation-duration: 11s;
     }
 
     .logo-img {
         animation: logoFloat 4s ease-in-out infinite;
-        will-change: transform;
     }
 
     .logo-text::after {
         animation: greenDotPulse 2.4s ease-in-out infinite;
-        will-change: transform, opacity;
     }
 
     .typing {
@@ -853,24 +830,6 @@ nav ul li a.active {
     .skills-container,
     .stats-row {
         grid-template-columns: 1fr;
-    }
-}
-
-@keyframes mobileProfilePulse {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
-    }
-
-    50% {
-        transform: translateY(-4px) scale(1.015);
-        box-shadow: 0 24px 58px rgba(69, 212, 131, 0.16);
-    }
-}
-
-@keyframes mobileRingSpin {
-    to {
-        transform: rotate(360deg);
     }
 }
 
