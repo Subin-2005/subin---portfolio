@@ -294,6 +294,7 @@ nav ul li a.active {
     inset: 0;
     border-radius: 50%;
     pointer-events: none;
+
     -webkit-mask: radial-gradient(
         farthest-side,
         transparent calc(100% - 7px),
@@ -304,6 +305,7 @@ nav ul li a.active {
         transparent calc(100% - 7px),
         #000 calc(100% - 6px)
     );
+
     animation: rotate 7s linear infinite;
 }
 
@@ -731,10 +733,11 @@ nav ul li a.active {
     color: var(--accent);
 }
 
-/* Mobile layout and performance fixes */
 @media (max-width: 900px) {
     body {
-        background: linear-gradient(135deg, #08110f 0%, #0f181f 100%);
+        background:
+            radial-gradient(circle at top left, rgba(69, 212, 131, 0.08), transparent 22rem),
+            linear-gradient(135deg, #08110f 0%, #0f181f 100%);
     }
 
     header {
@@ -784,25 +787,39 @@ nav ul li a.active {
     .profile-img {
         grid-row: 1;
         width: min(76vw, 330px);
-        border: 2px solid rgba(69, 212, 131, 0.45);
-        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+        border: 2px solid rgba(69, 212, 131, 0.42);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+        animation: mobileProfilePulse 3.8s ease-in-out infinite;
+        will-change: transform, box-shadow;
     }
 
     .profile-img::before,
     .profile-img::after {
         display: none;
-        animation: none;
     }
 
-    .logo-img,
-    .logo-text::after,
-    .typing {
-        animation: none;
+    .profile-ring {
+        border-color: rgba(69, 212, 131, 0.28);
+        animation: mobileRingSpin 10s linear infinite;
+        will-change: transform;
+    }
+
+    .profile-img img {
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+    }
+
+    .logo-img {
+        animation: logoFloat 4s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    .logo-text::after {
+        animation: greenDotPulse 2.4s ease-in-out infinite;
+        will-change: transform, opacity;
     }
 
     .typing {
-        border-right: 0;
-        white-space: normal;
+        animation: blink 1s infinite;
     }
 
     .btn:hover,
@@ -816,6 +833,24 @@ nav ul li a.active {
     .skills-container,
     .stats-row {
         grid-template-columns: 1fr;
+    }
+}
+
+@keyframes mobileProfilePulse {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+    }
+
+    50% {
+        transform: translateY(-4px) scale(1.015);
+        box-shadow: 0 24px 58px rgba(69, 212, 131, 0.16);
+    }
+}
+
+@keyframes mobileRingSpin {
+    to {
+        transform: rotate(360deg);
     }
 }
 
