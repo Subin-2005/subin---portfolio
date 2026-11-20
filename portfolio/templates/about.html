@@ -1,39 +1,74 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <section class="about-page">
-    <h1>About Me</h1>
-    <h2>Hi, I am {{ profile.name }}, a {{ profile.role }}.</h2>
-    <p>{{ profile.summary }}</p>
-
-    <p>I focus on building responsive, user-friendly, and dynamic web applications using:</p>
-
-    <div class="about-tags">
-        {% for skill in skills %}
-        <span>{{ skill.name }}</span>
-        {% endfor %}
-    </div>
-
-    <p>I enjoy building real-world projects and continuously improving my programming skills. I am interested in web development, UI design, and backend architecture.</p>
-
-    <p>My goal is to become a professional software developer and contribute to innovative and impactful projects.</p>
-
-    <div class="stats-row">
-        <div>
-            <strong>8+</strong>
-            <span>Core skills</span>
+        <div class="section-heading">
+            <p class="eyebrow">About Me</p>
+            <h1>Crafting modern, scalable solutions with passion.</h1>
+            <p>Hi, I am <strong style="color: var(--accent);">{{ profile.name }}</strong>, a {{ profile.role }}
+                dedicated to building high-performance web systems and dynamic digital experiences.</p>
         </div>
-        <div>
-            <strong>3</strong>
-            <span>Featured projects</span>
-        </div>
-        <div>
-            <strong>Full Stack</strong>
-            <span>Development focus</span>
-        </div>
-    </div>
 
+                    <div class="about-grid">
+                        <!-- Left Column: Bio & Skills -->
+                        <div class="about-main-content">
+                            <div class="about-card">
+                                <h3>My Background &amp; Philosophy</h3>
+                                <p>{{ profile.summary }}</p>
+                                <p>I focus on building responsive, user-friendly, and dynamic web applications with
+                                    thoughtful frontend details and rock-solid backend logic.</p>
+                                <p>I enjoy engineering real-world projects, continuously improving my architecture
+                                    patterns, and contributing to innovative and impactful products.</p>
+
+                                <h4
+                                    style="margin-top: 1.8rem; margin-bottom: 0.8rem; font-family: var(--font-heading); color: var(--text); font-size: 1.1rem;">
+                                    Core Tech Stack:
+                                </h4>
+                                <div class="about-tags">
+                                    {% for skill in skills %}
+                                    <span>✦ {{ skill.name }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                                <!-- Right Column: Stats & Actions -->
+                                <div class="about-side-content">
+                                    <div class="stats-column">
+                                        <div class="stat-card">
+                                            <strong data-counter="8" data-suffix="+">8+</strong>
+                                            <span>Core Skills &amp; Tools</span>
+                                        </div>
+                                            <div class="stat-card">
+                                                <strong data-counter="3" data-suffix="+">3+</strong>
+                                                <span>Key Projects Delivered</span>
+                                            </div>
+                                                <div class="stat-card">
+                                                    <strong>Full Stack</strong>
+                                                    <span>Architecture &amp; UI Focus</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Quick CTA buttons -->
+                                            <div class="btn-group about-cta-group" style="margin-top: 1.5rem;">
+                                                <a href="{% url 'projects' %}" class="btn btn-primary" style="flex: 1;">
+                                                    <span>Explore Projects</span>
+                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                        stroke-linejoin="round">
+                                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                                    </svg>
+                                                </a>
+                                                <a href="{% url 'contact' %}" class="btn btn-secondary"
+                                                    style="flex: 1;">
+                                                    <span>Get in Touch</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 </section>
 
 {% endblock %}

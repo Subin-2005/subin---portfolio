@@ -3,20 +3,24 @@
 {% block content %}
 
 <section class="projects-page">
-    <div class="section-heading centered">
-        <p class="eyebrow">Work</p>
-        <h1>Projects</h1>
-        <p>Here are a few portfolio-ready projects that show my full stack development direction.</p>
+    <div class="section-heading">
+        <p class="eyebrow">Featured Work</p>
+        <h1>Engineering Projects</h1>
+        <p>A curated collection of full-stack web applications, backend services, and interactive software developed
+            with clean architecture and modern user experience.</p>
     </div>
 
     <div class="project-grid">
         {% for project in projects %}
         <article class="project-card">
-            <h2>{{ project.title }}</h2>
+            <div class="project-card-header">
+                <h2>{{ project.title }}</h2>
+                <span class="project-icon-badge">↗</span>
+            </div>
             <p>{{ project.description }}</p>
             <div class="tag-list">
                 {% for item in project.stack %}
-                <span>{{ item }}</span>
+                <span>#{{ item }}</span>
                 {% endfor %}
             </div>
         </article>

@@ -5,8 +5,9 @@ PROFILE = {
     "name": "Subin S R",
     "role": "Python Full Stack Developer",
     "location": "Tamil Nadu, India",
-    "email": "subinsr.developer@gmail.com",
+    "email": "subinsr812@gmail.com",
     "phone": "+91 ******5090",
+    "whatsapp": "8122715090",  # Set your 10-digit WhatsApp number with country code (e.g. 919876543210)
     "summary": (
         "I build clean, responsive web applications with Django, Python, "
         "JavaScript, React, and MySQL. I enjoy turning practical ideas into "
@@ -28,16 +29,19 @@ SKILLS = [
 
 PROJECTS = [
     {
-        "title": "Django Portfolio Website",
+        "title": "An Intelligent Web-Based Career Portal",
         "description": (
-            "Developed a responsive personal portfolio website to showcase my skills, projects,"
-            " education, and achievements. The website provides a professional online presence"
-            " with an intuitive user interface, project gallery, contact section, and viewable"
-            " resume. Designed with a focus on responsiveness, accessibility, and user experience"
-            " to ensure seamless performance across desktop and mobile devices."
+            "An Intelligent Web-Based Career Portal is a platform designed to connect students with"
+            "companies and simplify the recruitment process. It provides role-based access for Students,"
+            "Companies, and Administrators. Students can search and apply for job opportunities, manage "
+            "their profiles and resumes, and track application status. Companies can post job vacancies, "
+            "manage job listings, shortlist candidates, and review applications. Administrators can verify "
+            "company details, manage users and companies, and monitor platform activities. The system uses Python, "
+            "Django, and MySQL to process and store data efficiently, providing a centralized and user-friendly recruitment management solution."
         ),
-        "stack": ["Python", "Django", "HTML", "CSS", "JavaScript"],
+        "stack": ["Python", "Django", "MySQL", "HTML", "CSS", "JavaScript"],
     },
+    
     {
         "title": "Gym Management App",
         "description": (
@@ -48,8 +52,21 @@ PROJECTS = [
             " Created responsive interfaces and optimized database operations for efficient data "
             "management. Used Git and GitHub for version control and collaborative development."
         ),
-        "stack": ["Python", "Django", "MySQL", "HTML", "CSS", "JavaScript"],
+        "stack": ["Python", "Django", "MySQL", "React", "HTML", "CSS", "JavaScript"],
     },
+
+    {
+        "title": "Django Portfolio Website",
+        "description": (
+            "Developed a responsive personal portfolio website to showcase my skills, projects,"
+            " education, and achievements. The website provides a professional online presence"
+            " with an intuitive user interface, project gallery, contact section, and viewable"
+            " resume. Designed with a focus on responsiveness, accessibility, and user experience"
+            " to ensure seamless performance across desktop and mobile devices."
+        ),
+        "stack": ["Python", "Django", "HTML", "CSS", "JavaScript"],
+    },
+    
     {
         "title": "Tic-Tac-Toe",
         "description": (
@@ -92,8 +109,7 @@ def about(request):
 
 
 def contact(request):
-    success = request.method == "POST"
-    return render(request, "contact.html", get_context(success=success))
+    return render(request, "contact.html", get_context())
 
 
 def skills(request):
@@ -104,4 +120,4 @@ def projects(request):
     return render(request, "projects.html", get_context())
 
 def education(request):
-    return render(request, "education.html")
+    return render(request, "education.html", get_context())
